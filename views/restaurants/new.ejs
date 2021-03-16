@@ -1,0 +1,31 @@
+<%- include('../partials/header') %>
+
+
+
+      
+<h2>NEW Restaurants</h2>
+<form action="/restaurants/new" method="POST">
+    <label>Restaurant Name:</label>
+        <input type="text" name="name">
+    <br>
+    <label>City:</label>
+        <input type="text" name="location">
+    <br>
+    <label>Type of food:</label>
+        <select name="foodtype">
+            <option value="Mexican">Mexican</option>
+            <option value="Italian">Italian</option>
+            <option value="Greek">Greek</option>
+        </select>
+    <br>
+    <label>Date:</label>
+        <input type="datetime-local" name="date">
+
+    <br>
+    
+    <input type="submit" value="Add Restaurant">
+</form>
+
+
+
+<%- include('../partials/footer') %>

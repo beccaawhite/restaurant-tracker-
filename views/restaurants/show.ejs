@@ -1,0 +1,95 @@
+<%- include('../partials/header') %>
+    <br>
+    <br>
+
+
+    <h2>Restaurants Details</h2>
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                Placeholder ~ 1 of 3 ~
+            </div>
+
+            <div class="col-8 restcard">
+
+                <section id="show-page">
+                    <!-- <div>Name: </div> -->
+                    <div style="font-size: 2rem; font-weight: 500;">
+                        <%= restaurant.name %>
+                    </div>
+                    <hr class="makeline">
+                    <!-- <div>City: </div> -->
+                    <div>Located in <%= restaurant.location %>
+                    </div>
+                    <!-- <div>Type of Food: </div> -->
+                    <div>
+                        <%= restaurant.foodtype %> Food
+                    </div>
+                </section>
+
+                <br>
+
+                <div>Reviews</div>
+                <hr class="makeline">
+                <div class="eachReview">
+                    <% restaurant.reviews.forEach(r=> { %>
+                        <!-- add id to this div in order to format reviews -->
+                        <div>
+                            <li>
+                                <%= r.content %>
+                            </li>
+                            <li>
+                                <%= r.rating %>
+                            </li>
+                            <li>
+                                <%= r.date %>
+                            </li>
+                            <% if (r.userId.equals(user._id)) { %>
+                            <form action="/restaurants/<%= restaurant._id %>?_method=DELETE" method="POST">
+                                <button type="submit">X</button>
+                            </form>
+                            <% } %>
+                            <br>
+                            <% }) %>
+                           
+                        </div>
+                </div>
+
+                <form action="/restaurants/<%= restaurant._id %>" method="POST">
+                    <div >
+                        <label>Comments:</label>
+                        <textarea name="content"></textarea>
+                        <br>
+                        <label>Rating:</label>
+                        <select name="rating">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option selected value="5">5</option>
+                        </select>
+                        <br>
+                        <label>Date</label>
+                        <input type="datetime-local" name="date">
+
+                        <input type="submit" value="Add Review">
+                    </div>
+                </form>
+
+            </div>
+
+            
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+    <%- include('../partials/footer') %>
