@@ -7,8 +7,9 @@ module.exports = {
     new: newRestaurant,
     show,
     create, 
-    add,
-    delete: deleteReview
+    add, 
+    favorite
+    // delete: deleteReview
 };
 
 
@@ -26,11 +27,12 @@ function index(req, res){
 function show(req, res){
     console.log("SHOW FUNCTION FIRED")
     Restaurant.findById(req.params.id, function(err, restaurant){
+        // res.render("restaurants/show", {title: 'restaurant info', restaurant })
 
         User.find({restaurant: restaurant._id}, function(err, reviews) {
-            // console.log(reviews, "array of reviews")
             console.log(restaurant)
             res.render("restaurants/show", {title: 'restaurant info', restaurant, reviews })
+            console.log(reviews, "array of reviews")
         })
     })
 }
@@ -54,6 +56,7 @@ function create(req, res){
 
 }
 
+// adds reviews to specific restaurant
 function add(req, res){
     Restaurant.findById(req.params.id, function(err, restaurant){
         restaurant.reviews.push(req.body);
@@ -65,34 +68,21 @@ function add(req, res){
 
 }
 
-function deleteReview(req, res){
-    console.log("Bye byeeee")
-    // Restaurant.reviews.deleteOne(req.params.id)
+// deletes specific review from specific restaurant page
+// function deleteReview(req, res){
+//     console.log("Bye byeeee")
 
-    Restaurant.findById(req.params.id, function(err, restaurant){
-        Restaurant.findOne({"reviews._id": req.params.id}, function(err, restaurant){
-            const reviewDoc = restaurant.reviews.id(req.params.id);
-            if(!reviewDoc.userId.equals(req.user._id)) return res.redirect(`/restaurants/${restaurant._id}`);
-            reviewDoc.remove();
-            restaurant.save(function(err){
-                res.redirect(`/restaurants/${restaurant._id}`)
-            })
-        })
-    })
+//     Restaurant.findOne({'reviews._id': req.params.id}, function(err, restaurant){
+//         console.log(req.params.id, "REVIEW DOC")
+//         const reviewDoc = restaurant.reviews.id(req.params.id);
+//         // reviewDoc.remove();
+//         // console.log(req.body, " THIS IS REQ.BODY")
+//         // restaurant.save(function(err){
+//         //     res.redirect(`/restaurants/${restaurant._id}`)
+//         // })
+//     })
+
+
+function favorite(req, res){
+    res.render("/restaurants/favorites")
 }
-
-
-
-
-
-// console.log(restaurant.reviews, "THIS ITTTTT")
-// // restaurant.reviews
-// console.log(reviews, "REVIEWS LEFT")
-// restaurant.save(function(err){
-//     console.log(restaurant)
-//     // res.redirect(`/restaurants/${restaurant._id}`)
-// })
-// // restaurant.reviews.deleteOne(req.body);
-// // res.redirect(`/restaurants/${restaurant._id}`)
-// })
-

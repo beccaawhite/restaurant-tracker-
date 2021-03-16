@@ -30,12 +30,14 @@
 
                 <br>
 
-                <div>Reviews</div>
+
                 <hr class="makeline">
-                <div class="eachReview">
-                    <% restaurant.reviews.forEach(r=> { %>
+                <div>
+                    <% if (restaurant.reviews.length) { %>
+                        <div>Reviews</div>
+                    <% restaurant.reviews.forEach(r => { %>
                         <!-- add id to this div in order to format reviews -->
-                        <div>
+                        <div id="eachReview">
                             <li>
                                 <%= r.content %>
                             </li>
@@ -45,19 +47,20 @@
                             <li>
                                 <%= r.date %>
                             </li>
-                            <% if (r.userId.equals(user._id)) { %>
-                            <form action="/restaurants/<%= restaurant._id %>?_method=DELETE" method="POST">
+                            <form action="/restaurants/<%= restaurant._id %>?_method=DELETE" method="POST" class="delete-review">
                                 <button type="submit">X</button>
                             </form>
-                            <% } %>
+                         
                             <br>
-                            <% }) %>
-                           
                         </div>
+                    <% }); %>
+                    <% } else { %> 
+                    <div>No Reviews Yet</div>
+                    <% } %>
                 </div>
 
                 <form action="/restaurants/<%= restaurant._id %>" method="POST">
-                    <div >
+                    <div id="addReview">
                         <label>Comments:</label>
                         <textarea name="content"></textarea>
                         <br>

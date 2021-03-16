@@ -2,7 +2,9 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const reviewSchema = new Schema({
-    content: String,
+    content: {
+        type: String
+    },
     rating: {
         type: Number, min: 1, max: 5, default: 3
     },
@@ -12,7 +14,9 @@ const reviewSchema = new Schema({
             return new Date()
         }
     }
-  });
+  }, {
+    timestamp: true
+});
 
 
 // Create your Restaurant Model
@@ -26,6 +30,8 @@ const restaurantSchema = new Schema({
     },
     reviews: [reviewSchema]
    
+}, {
+    timestamp: true
 })
 
 

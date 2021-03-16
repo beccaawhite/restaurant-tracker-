@@ -15,13 +15,20 @@ function create(req, res){
     })
 }
 
-function deleteReview(req, res){
-    console.log("DELETE  REVIEW  FUNCTION")
-    // Restaurant(req.body, function(err, restaurant){
-    //     console.log(req.body.reviews, "REST>REVIEWS HERE")
-        // restaurant.reviews.deleteOne(req.body);
-        // res.redirect(`/restaurants/${restaurant._id}`)
-    // })
-    // Restaurant.reviews.deleteOne(req.params.id)
 
-}
+function deleteReview(req, res) {
+    console.log("Delete is firing")
+
+
+    Restaurant.findOne({'reviews._id': req.params.id}, function(err, restaurant) {
+      const reviewDoc = restaurant.reviews.id(req.params.id);
+
+      console.log(reviewDoc)
+      
+      if(!reviewDoc.userId.equals(req.user._id)) return res.redirect(`/restaurants/${restaurant._id}`);
+      reviewDoc.remove();
+      restaurant.save(function(err) {
+        res.redirect(`/restaurants/${restaurant._id}`)
+      })
+    })
+  }
