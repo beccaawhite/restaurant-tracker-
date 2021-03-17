@@ -13,6 +13,5 @@ const userSchema = new mongoose.Schema({
 })
 
 
-// def needs google id
 
 module.exports = mongoose.model('User', userSchema);

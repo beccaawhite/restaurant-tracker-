@@ -7,7 +7,6 @@ router.get('/', function(req, res) {
   // This takes us to views index
   res.redirect("/users")
   // res.render('index', { title: 'HOME' });
-  
 });
 
 // Google OAuth login route

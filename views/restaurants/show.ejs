@@ -48,9 +48,12 @@
                             <li>
                                 <%= r.rating %>
                             </li>
-                            <li>
-                                <%= r.date %>
-                            </li>
+                            <% if (r.date) { %>
+                                <li>
+                                    <%= r.date.toDateString() %>
+                                    
+                                </li>
+                            <% }; %>
                             <form action="/restaurants/<%= r._id %>?_method=DELETE" method="POST" >
                                 <button type="submit">X</button>
                             </form>

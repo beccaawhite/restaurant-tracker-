@@ -10,8 +10,11 @@ const reviewSchema = new Schema({
     },
     date: {
         type: Date,
+        // this default sure doesn't do much, come back and fix
         default: function () {
-            return new Date()
+            const date = new Date(+new Date())
+            return date
+            
         }
     }
   }, {
