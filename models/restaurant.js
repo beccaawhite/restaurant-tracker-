@@ -21,6 +21,10 @@ const reviewSchema = new Schema({
 
 // Create your Restaurant Model
 const restaurantSchema = new Schema({
+    userId: {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    },
     name: String,
     location: String,
     foodtype: {

@@ -27,7 +27,6 @@ function index(req, res){
 function show(req, res){
     console.log("SHOW FUNCTION FIRED")
     Restaurant.findById(req.params.id, function(err, restaurant){
-        // res.render("restaurants/show", {title: 'restaurant info', restaurant })
 
         User.find({restaurant: restaurant._id}, function(err, reviews) {
             console.log(restaurant)

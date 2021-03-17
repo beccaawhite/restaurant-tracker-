@@ -2,16 +2,18 @@
 <br>
 <br>
 
-
       
 <h2>All My Restaurants</h2>
+
 
 <div class="row">
 <% restaurants.forEach(function(r) { %>
   <div>
         <div class="card" style="width: 25rem;">
             <div class="card-body">
-                <h5 class="card-title"><%= r.name %></h5>
+                <h5 class="card-title">
+                    <%= r.name %>
+                </h5>
                 <p class="card-text"><%= r.location %></p>
                 <a href="/restaurants/<%= r._id %>" method="GET" class="btn btn-primary">More Details</a>
             </div>
