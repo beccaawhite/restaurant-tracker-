@@ -17,14 +17,15 @@
 
 #nav-bar {
   font-size: 1.2rem;
-  background-color: burlywood;
+  background-color: rgb(188, 150, 143);
 
 }
 #nav-bar .nav-link {
-  color: rosybrown;
+  color: white;
+
 }
 #nav-bar .nav-link:hover {
-  color: red;
+  color: black;
 }
 
 .rest-form {
