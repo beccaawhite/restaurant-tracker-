@@ -36,8 +36,8 @@ const restaurantSchema = new Schema({
     location: String,
     foodtype: {
         type: String,
-        enum: ["Mexican", "Italian", "Greek"]
-        // "Chinese", "Indian", "Japanese", "Soul", "American"
+        enum: ["Mexican", "Italian", "Greek", "Chinese", "Indian", "Japanese", "Soul", "American", "Thai", "Other"]
+    
     },
     reviews: [reviewSchema]
    

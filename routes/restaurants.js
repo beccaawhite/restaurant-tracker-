@@ -1,21 +1,34 @@
 var router = require('express').Router();
 const restaurantsCtrl = require('../controllers/restaurants');
 
-
+// view all restaurants
 router.get('/restaurants', isLoggedIn, restaurantsCtrl.index);
+router.get('/restaurants/mine', isLoggedIn, restaurantsCtrl.myindex);
 
+
+// view form to create new restaurant
 router.get('/restaurants/new', isLoggedIn, restaurantsCtrl.new);
+
+// add the new restaurant 
 router.post('/restaurants/new', isLoggedIn, restaurantsCtrl.create);
 
-//show more details on my restaurants 
-router.get('/restaurants/:id', isLoggedIn, restaurantsCtrl.show);
+// adds reviews to specific restaurant
 router.post('/restaurants/:id', isLoggedIn, restaurantsCtrl.add);
-// router.delete('/restaurants/:id', restaurantsCtrl.delete);
 
+// show specific restaurant details 
+router.get('/restaurants/:id', isLoggedIn, restaurantsCtrl.show);
+
+// delete restaurant entry
 router.delete('/restaurants/:id', isLoggedIn, restaurantsCtrl.delete);
 
+// view form to edit specific restaurant
+router.get('/restaurants/:id/edit', isLoggedIn, restaurantsCtrl.edit)
 
-// router.get('/restaurants/favorites', isLoggedIn, restaurantsCtrl.favorite);
+// update specific restaurant entry
+router.put('/restaurants/:id', isLoggedIn, restaurantsCtrl.update);
+
+// 
+router.get('/restaurants/favorites', isLoggedIn, restaurantsCtrl.favorite);
 
 
 

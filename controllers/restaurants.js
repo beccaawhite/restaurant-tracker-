@@ -9,7 +9,10 @@ module.exports = {
     create, 
     add, 
     delete: deleteRestaurant,
-    favorite
+    favorite,
+    update,
+    edit,
+    myindex
 
 };
 
@@ -21,6 +24,16 @@ function index(req, res){
         res.render("restaurants/index", {
             restaurants: restDocuments
         });
+    });
+}
+
+// list for restaurants that match userId 
+function myindex(req, res, next) {
+    Restaurant.find({'userId': req.user._id}, function(err, restaurants) {
+      res.render('restaurants/myindex', { 
+        title: 'MY restaurants',
+        restaurants, 
+      });
     });
 }
 
@@ -46,8 +59,8 @@ function deleteRestaurant(req, res){
 // adds new restaurant to all restaurants and redirects to all page
 function create(req, res){
         
-      req.body.user = req.user._id;
-      const restaurant = new Restaurant(req.body);
+    const restaurant = new Restaurant(req.body);
+    restaurant.user = req.user._id;
       restaurant.userId = req.user._id;
       restaurant.save(function(err) {
         if (err) return res.redirect('/restaurants/new');
@@ -70,6 +83,30 @@ function add(req, res){
 }
 
 
+function edit(req, res) {
+    Restaurant.findById(req.params.id, function(err, restaurant) {
+      // Verify restaurant is "owned" by logged in user
+      if (!restaurant.userId.equals(req.user._id)) return res.redirect('/restaurants');
+      res.render('restaurants/edit', restaurant);
+        
+    
+    });
+  }
+
+
+function update(req, res) {
+    // Note the cool "dot" syntax to query on the property of a subdoc
+    Restaurant.findById(req.params.id, function(err, restaurant) {
+      if (!restaurant.userId.equals(req.user._id)) return res.redirect("/restaurants");
+      restaurant.push(req.body)
+      restaurant.save(function(err) {
+        res.redirect(`/restaurants/${restaurant._id}`);
+      });
+    });
+  }
+
+
+
 // when click star on restaurants/index, add that restaurant to favorites pafe
 // shows all MY created restuarants
 // doesnt work yet
@@ -81,7 +118,8 @@ function favorite(req, res){
     //         myrestaurants: restDocuments
     //     });
     // });
-
-
+    Restaurant.findById(req.params.id, function(err, restaurant){
+        res.render("restaurants/favorites", restaurant)
+    })
 
 }

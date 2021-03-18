@@ -16,14 +16,17 @@
 
     <nav class="navbar navbar-dark navbar-expand-md fixed-top">
         <ul class="nav nav-pills nav-fill">
-            <li class="nav-item">
+            <!-- <li class="nav-item">
             <a class="nav-link" href="/restaurants/favorites">Favorties</a>
+            </li> -->
+            <li class="nav-item">
+            <a class="nav-link" href="/restaurants">All Restaurants</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="/restaurants"> Restaurants</a>
-            </li>
+                <a class="nav-link" href="/restaurants/mine">My Restaurants</a>
+                </li>
             <li class="nav-item">
-            <a class="nav-link" href="/restaurants/new">Add Log</a>
+            <a class="nav-link" href="/restaurants/new">New Restaurant</a>
             </li>
             <li class="nav-item">
                 <% if (user) { %>
