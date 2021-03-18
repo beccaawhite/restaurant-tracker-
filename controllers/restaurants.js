@@ -20,6 +20,7 @@ module.exports = {
 // list of all restaurants
 function index(req, res){
     Restaurant.find({}, function(err, restDocuments) {
+      
         // console.log(restDocuments)
         res.render("restaurants/index", {
             restaurants: restDocuments
@@ -40,9 +41,15 @@ function myindex(req, res, next) {
 // shows details of each restaurant page
 function show(req, res){
     Restaurant.findById(req.params.id, function(err, restaurant){
+        
+        // .exec(function(err){
+            console.log("restaurant reviews", restaurant.reviews)
+            res.render("restaurants/show", {title: 'restaurant info', restaurant, user: req.user})
+        // })
         // console.log(r.userId)
-        res.render("restaurants/show", {title: 'restaurant info', restaurant})
+        // res.render("restaurants/show", {title: 'restaurant info', restaurant})
     })
+    
 }
 
 // shows new restaurant page

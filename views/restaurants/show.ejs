@@ -89,19 +89,19 @@
                                 </li>
                             <% }; %>
                             <li>
-                                Review posted by <%= user.name %>
+                                <!-- this makes any user sign in appear -->
+                                Review posted by <%= r.reviewerName %>
                             </li>
                             <!-- if user made the post, then show form -->
                         
 
-                            <p>r.userId, user._id</p>
-                            <%= r.userId, user._id%>
-                            <%= r, user %>
+                        
+                           
 
                             <% if(r.userId){ %>
                                 
-                                <% if(r.userId.equals(user._id)) { %>
-                                    <form action="/restaurants/<%= r._id %>?_method=DELETE" method="POST" >
+                                <% if(r.userId.toString() == user._id.toString()) { %>
+                                    <form action="/restaurants/<%= restaurant._id %>/reviews/<%= r._id %>?_method=DELETE" method="POST" >
                                         <button type="submit">X</button>
                                     </form>
                                 <% } %>

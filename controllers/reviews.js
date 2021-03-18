@@ -8,15 +8,16 @@ module.exports = {
 
 function create(req, res){
     Restaurant.findById(req.params.id, function(err, restaurant){
+      console.log("userID", req.body, req.user)
       req.body.userId = req.user._id;
-      
+      req.body.reviewerName = req.user.name
 
       restaurant.reviews.push(req.body);
       // restaurant.reviews.userId = req.user._id
         
       // restaurant.reviews.userId = req.user._id;
       restaurant.save(function(err){
-          res.redirect(`restaurants/${restaurant._id}`)
+          res.redirect(`/restaurants/${restaurant._id}`)
       })
     })
 }
@@ -25,9 +26,9 @@ function create(req, res){
 function deleteReview(req, res) {
     console.log("Delete is firing")
 
-    Restaurant.findOne({'reviews._id': req.params.id}, function(err, restaurant) {
+    Restaurant.findById(req.params.id1, function(err, restaurant) {
       
-      const reviewSubDoc = restaurant.reviews.id(req.params.id);
+      const reviewSubDoc = restaurant.reviews.id(req.params.id2);
     
       console.log(req.user._id, "???")
       reviewSubDoc.remove();
