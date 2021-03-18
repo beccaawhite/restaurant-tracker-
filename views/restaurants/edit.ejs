@@ -4,18 +4,18 @@
 <br><br>
 
     <h2 class="text-center">Edit Restaurants</h2>
-    <div class="col-4 offset-4"> 
+    <div class="col-4 offset-4 rest-form"> 
         <form action="/restaurants/<%= restaurant._id %>?_method=PUT" method="POST">
             <div class="mb-3">
                 <label class="form-label">Restaurant Name:</label>
                 <input class="form-control" type="text" name="name">
             </div>
            
-            <div class="mb-3">
+            <!-- <div class="mb-3">
                 <label class="form-label">City:</label>
                 <input class="form-control" type="text" name="location">
-            </div>
-           
+            </div> -->
+<!--            
             <div class="mb-3">
                 <label class="form-label">Type of food:</label>
                 <select name="foodtype">
@@ -29,10 +29,10 @@
                     <option value="Thai">Thai</option>
                     <option value="Other">Other</option>
                 </select>
-            </div>
-            <div class="mb-3">
+            </div> -->
+            <!-- <div class="mb-3">
                 <button class="btn btn-success" type="submit" value="Update Restaurant">Update Restaurant</button>
-            </div>
+            </div> -->
         </form>
     </div>
 
