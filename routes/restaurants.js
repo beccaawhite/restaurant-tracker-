@@ -3,6 +3,8 @@ const restaurantsCtrl = require('../controllers/restaurants');
 
 // view all restaurants
 router.get('/restaurants', isLoggedIn, restaurantsCtrl.index);
+
+// view restaurants specific user created
 router.get('/restaurants/mine', isLoggedIn, restaurantsCtrl.myindex);
 
 
@@ -22,10 +24,10 @@ router.get('/restaurants/:id', isLoggedIn, restaurantsCtrl.show);
 router.delete('/restaurants/:id', isLoggedIn, restaurantsCtrl.delete);
 
 // view form to edit specific restaurant
-router.get('/restaurants/:id/edit', isLoggedIn, restaurantsCtrl.edit)
+router.get('/restaurants/edit', isLoggedIn, restaurantsCtrl.edit)
 
 // update specific restaurant entry
-router.put('/restaurants/:id', isLoggedIn, restaurantsCtrl.update);
+router.put('/restaurants/:id/mine', isLoggedIn, restaurantsCtrl.update);
 
 // 
 router.get('/restaurants/favorites', isLoggedIn, restaurantsCtrl.favorite);

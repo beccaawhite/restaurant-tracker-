@@ -15,6 +15,31 @@
   top: -5px;
 }
 
+#nav-bar {
+  font-size: 1.2rem;
+  background-color: burlywood;
+
+}
+#nav-bar .nav-link {
+  color: rosybrown;
+}
+#nav-bar .nav-link:hover {
+  color: red;
+}
+
+.rest-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 60px;
+  padding: 60px;
+  border: 3px solid rgb(165, 112, 42);
+  border-radius: 15%;
+  background-color: rgba(238, 179, 108, 0.3);
+    
+}
+
+
 .collection-item form {
   margin-top: -5px;
 }
@@ -53,32 +78,43 @@
 } */
 
 #eachReview {
-  margin: 5px 3px;
-  padding: 5px 10px;
-  background-color: beige;
-  border: 0.5px solid #969695;
+  background-color: oldlace;
+  border: 1px solid rosybrown;
+  border-radius: 3px;
+  margin: 5px;
+  padding: 10px;
 
 }
 
 #addReview{
-  background-color: rosybrown;
+  background-color: oldlace;
+  border: 1px solid rosybrown;
+  border-radius: 3px;
+  margin: 5px;
+  padding: 10px;
 }
 
 
 /* make the text centered on image but background box */
-#welcome {
+.welcome {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 400px;
-  color: red;
-  /* background-color: rosybrown; */
+  /* height: 400px; */
+  color: white;
+  background-color: rgba(23, 1, 1, 0.873);
+  border-radius: 10px;
+
   
  
 }
 
-#backgroundIndex {
+.backgroundIndex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 60px;
   background-image: url("../../images/restaurant.jpg");
   background-color: #cccccc;
   height: 500px;

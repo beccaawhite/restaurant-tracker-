@@ -1,18 +1,17 @@
 <%- include('../partials/header') %>
     <br>
     <br>
+    <br>
 
 
-    <h2>Restaurants Details</h2>
+    <!-- <h2>Restaurants Details</h2> -->
 
-    <div class="container ">
+    <div class="container">
         <div class="row card-body">
             <div class="col-3">
-                
-                <img src="../../images/burger.jpg" height="250" width="100%">
-                <img src="../../images/burger.jpg" height="250" width="100%">
-                <img src="../../images/burger.jpg" height="250" width="100%">
-           
+                <img src="../../images/burger.jpg" height="200" width="100%">
+                <img src="../../images/salad.jpg" height="250" width="100%">
+                <img src="../../images/greek.jpg" height="250" width="100%">
             </div>
 
             <div class="col-6">
@@ -34,7 +33,11 @@
                     <div>Cusine:
                         <%= restaurant.foodtype %> 
                     </div>
-                    <a href="/restaurants/<%= restaurant._id %>/edit" class="edit-link">edit</a>
+                    
+                    <form action="/restaurants/<%= restaurant._id %>/edit">
+                        <button type="submit">edit restaurant</button>
+                    </form>
+                    
                 </section>
 
                 <br>
@@ -51,7 +54,33 @@
                                 <%= r.content %>
                             </li>
                             <li>
+                                <% if (r.rating == 5) { %>
                                 <%= r.rating %>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <% } else if(r.rating == 4) { %>
+                                    <%= r.rating %>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <% } else if(r.rating == 3) { %>
+                                    <%= r.rating %>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <% } else if(r.rating == 2) { %>
+                                    <%= r.rating %>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <% } else { %>
+                                    <%= r.rating %>
+                                <i class="far fa-star"></i>
+                                <% } %>
+
                             </li>
                             <% if (r.date) { %>
                                 <li>
@@ -63,10 +92,14 @@
                                 Review posted by <%= user.name %>
                             </li>
                             <!-- if user made the post, then show form -->
-                            
+                        
 
+                            <form action="/restaurants/<%= r._id %>?_method=DELETE" method="POST" >
+                                <button type="submit">X</button>
+                            </form>
 
                             <% if(r.userId){ %>
+                                
                                 <% if(r.userId.equals(user._id)) { %>
                                     <form action="/restaurants/<%= r._id %>?_method=DELETE" method="POST" >
                                         <button type="submit">X</button>
@@ -109,23 +142,13 @@
             </div>
 
             <div class="col 3">
-                
-                <img src="../../images/burger.jpg" height="250" width="100%">
-                <img src="../../images/burger.jpg" height="250" width="100%">
-                <img src="../../images/burger.jpg" height="250" width="100%">
-           
+                <img src="../../images/meat.jpg" height="200" width="100%">
+                <img src="../../images/sushi.jpg" height="250" width="100%">
+                <img src="../../images/pancake.jpg" height="250" width="100%">
             </div>
             
 
         </div>
     </div>
-
-
-
-
-
-
-
-
 
     <%- include('../partials/footer') %>

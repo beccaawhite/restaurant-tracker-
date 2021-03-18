@@ -40,6 +40,7 @@ function myindex(req, res, next) {
 // shows details of each restaurant page
 function show(req, res){
     Restaurant.findById(req.params.id, function(err, restaurant){
+        // console.log(r.userId)
         res.render("restaurants/show", {title: 'restaurant info', restaurant})
     })
 }
@@ -86,7 +87,8 @@ function add(req, res){
 function edit(req, res) {
     Restaurant.findById(req.params.id, function(err, restaurant) {
       // Verify restaurant is "owned" by logged in user
-      if (!restaurant.userId.equals(req.user._id)) return res.redirect('/restaurants');
+      console.log(restaurant.userId, "REST USER ID")
+    //   if (!restaurant.userId.equals(req.user._id)) return res.redirect('/restaurants');
       res.render('restaurants/edit', restaurant);
         
     

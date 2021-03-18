@@ -1,32 +1,58 @@
 <%- include('../partials/header') %>
-<br>
-<br>
-
-      
-<h2> My Restaurants</h2>
+    <br>
+    <br>
 
 
-<div class="row ">
-    <% restaurants.forEach(function(r) { %>
-      <div>
-            <div class="card" style="width: 25rem;">
-                <div class="card-body">
-                    <h5 class="card-title">
-                        <%= r.name %>
-                        <!-- <a href="/restaurants/<%= r._id %>/favorites"> -->
-                        <i class="far fa-star"></i></a>
-                    </h5>
-                    
-                    <p class="card-text"> <%= r.location %></p>
-                    <a href="/restaurants/<%= r._id %>" method="GET" class="btn btn-success">More Details</a>
-                    <form action="/restaurants/<%= r._id %>?_method=DELETE"
-                        class="delete-form" method="POST">
-                        <button type="submit" class="btn btn-danger">Remove Restaurant</button>
-                    </form>
-                </div>
+    <h2> My Restaurants</h2>
+
+    <div class="container">
+        <div class="row card-body">
+            <div class="col-3">
+                <img src="../../images/burger.jpg" height="200" width="100%">
+                <img src="../../images/salad.jpg" height="250" width="100%">
+                <img src="../../images/greek.jpg" height="250" width="100%">
             </div>
+
+            <div class="col-6">
+                <section id="show-page">
+                <% restaurants.forEach(function(r) { %>
+                    <div>
+                        <div class="card" style="width: 25rem;">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <%= r.name %>
+                                        <!-- <a href="/restaurants/<%= r._id %>/favorites"> -->
+                                        <i class="far fa-star"></i></a>
+                                </h5>
+
+                                <p class="card-text">
+                                    <%= r.location %>
+                                </p>
+                                <a href="/restaurants/<%= r._id %>" method="GET" class="btn btn-success">More
+                                    Details</a>
+                                <form action="/restaurants/<%= r._id %>?_method=DELETE" class="delete-form"
+                                    method="POST">
+                                    <button type="submit" class="btn btn-danger">Remove Restaurant</button>
+                                </form>
+
+                                
+
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <% }); %>
+                </section>
+            </div>
+
+
+            <div class="col 3">
+                <img src="../../images/meat.jpg" height="200" width="100%">
+                <img src="../../images/sushi.jpg" height="250" width="100%">
+                <img src="../../images/pancake.jpg" height="250" width="100%">
+            </div>
+
         </div>
-    <% }); %>
     </div>
 
 
@@ -34,10 +60,4 @@
 
 
 
-
-
-<%- include('../partials/footer') %>
-
-
-
-  
+    <%- include('../partials/footer') %>

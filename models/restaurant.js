@@ -14,7 +14,6 @@ const reviewSchema = new Schema({
         default: function () {
             const date = new Date(+new Date())
             return date
-            
         }
     },
     userId: {
@@ -24,7 +23,6 @@ const reviewSchema = new Schema({
   }, {
     timestamp: true
 });
-
 
 // Create your Restaurant Model
 const restaurantSchema = new Schema({
@@ -45,7 +43,5 @@ const restaurantSchema = new Schema({
     timestamp: true
 })
 
-
-// def needs google id
 
 module.exports = mongoose.model('Restaurant', restaurantSchema);
