@@ -21,7 +21,11 @@ router.post('/restaurants/:id', isLoggedIn, reviewsCtrl.create);
 // show specific restaurant details 
 router.get('/restaurants/:id', isLoggedIn, restaurantsCtrl.show);
 
-// delete restaurant entry
+// 
+router.delete('/restaurants/:id', isLoggedIn, restaurantsCtrl.delete);
+
+
+// delete specific review entry
 router.delete('/restaurants/:id1/reviews/:id2', isLoggedIn, reviewsCtrl.delete);
 
 // view form to edit specific restaurant
