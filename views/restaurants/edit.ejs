@@ -5,7 +5,7 @@
 
     <h2 class="text-center">Edit Restaurants</h2>
     <div class="col-4 offset-4"> 
-        <form action="/restaurants/<%= restaurant._id %>/edit?_method=PUT" method="POST">
+        <form action="/restaurants/<%= restaurant._id %>?_method=PUT" method="POST">
             <div class="mb-3">
                 <label class="form-label">Restaurant Name:</label>
                 <input class="form-control" type="text" name="name">
@@ -31,7 +31,7 @@
                 </select>
             </div>
             <div class="mb-3">
-                <button class="btn btn-success" type="submit" value="Add Restaurant">Add Restaurant</button>
+                <button class="btn btn-success" type="submit" value="Update Restaurant">Update Restaurant</button>
             </div>
         </form>
     </div>

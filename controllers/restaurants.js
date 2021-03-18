@@ -83,13 +83,14 @@ function add(req, res){
 
 }
 
-
+// this allows user that made restaurant to edit the title
 function edit(req, res) {
+    console.log("EDIT IS FIRING")
     Restaurant.findById(req.params.id, function(err, restaurant) {
       // Verify restaurant is "owned" by logged in user
       console.log(restaurant.userId, "REST USER ID")
-    //   if (!restaurant.userId.equals(req.user._id)) return res.redirect('/restaurants');
-      res.render('restaurants/edit', restaurant);
+      if (!restaurant.userId.equals(req.user._id)) return res.redirect('/restaurants');
+      res.render('restaurants/edit', {restaurant});
         
     
     });

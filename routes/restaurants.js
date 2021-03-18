@@ -24,13 +24,13 @@ router.get('/restaurants/:id', isLoggedIn, restaurantsCtrl.show);
 router.delete('/restaurants/:id', isLoggedIn, restaurantsCtrl.delete);
 
 // view form to edit specific restaurant
-router.get('/restaurants/edit', isLoggedIn, restaurantsCtrl.edit)
+router.get('/restaurants/:id/edit', isLoggedIn, restaurantsCtrl.edit)
 
 // update specific restaurant entry
-router.put('/restaurants/:id/mine', isLoggedIn, restaurantsCtrl.update);
+router.put('/restaurants/:id', isLoggedIn, restaurantsCtrl.update);
 
 // 
-router.get('/restaurants/favorites', isLoggedIn, restaurantsCtrl.favorite);
+// router.get('/restaurants/favorites', isLoggedIn, restaurantsCtrl.favorite);
 
 
 

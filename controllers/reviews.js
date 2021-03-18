@@ -8,10 +8,11 @@ module.exports = {
 
 function create(req, res){
     Restaurant.findById(req.params.id, function(err, restaurant){
-      req.body.user = req.user._id;
+      req.body.userId = req.user._id;
       
 
       restaurant.reviews.push(req.body);
+      // restaurant.reviews.userId = req.user._id
         
       // restaurant.reviews.userId = req.user._id;
       restaurant.save(function(err){
@@ -37,7 +38,7 @@ function deleteReview(req, res) {
   }
 
 
-  
+
 
   function update(req, res) {
     Restaurant.findOne({'reviews._id': req.params.id}, function(err, restaurant) {      // Find the comment subdoc using the id method on Mongoose arrays

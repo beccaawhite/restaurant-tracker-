@@ -94,9 +94,9 @@
                             <!-- if user made the post, then show form -->
                         
 
-                            <form action="/restaurants/<%= r._id %>?_method=DELETE" method="POST" >
-                                <button type="submit">X</button>
-                            </form>
+                            <p>r.userId, user._id</p>
+                            <%= r.userId, user._id%>
+                            <%= r, user %>
 
                             <% if(r.userId){ %>
                                 
