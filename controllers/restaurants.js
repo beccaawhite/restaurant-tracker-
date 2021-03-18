@@ -9,7 +9,6 @@ module.exports = {
     create, 
     add, 
     delete: deleteRestaurant,
-    favorite,
     update,
     edit,
     myindex
@@ -116,20 +115,3 @@ function update(req, res) {
   }
 
 
-
-// when click star on restaurants/index, add that restaurant to favorites pafe
-// shows all MY created restuarants
-// doesnt work yet
-function favorite(req, res){
-
-    // Restaurant.find({'userId': req.user._id}, function(err, restDocuments) {
-    //     console.log(restDocuments, "REST DOC FAV")
-    //     res.render("restaurants/favorites", {
-    //         myrestaurants: restDocuments
-    //     });
-    // });
-    Restaurant.findById(req.params.id, function(err, restaurant){
-        res.render("restaurants/favorites", restaurant)
-    })
-
-}
