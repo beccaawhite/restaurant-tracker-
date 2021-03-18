@@ -107,7 +107,7 @@ function update(req, res) {
     // Note the cool "dot" syntax to query on the property of a subdoc
     Restaurant.findById(req.params.id, function(err, restaurant) {
       if (!restaurant.userId.equals(req.user._id)) return res.redirect("/restaurants");
-      restaurant.push(req.body)
+      restaurant.name = req.body
       restaurant.save(function(err) {
         res.redirect(`/restaurants/${restaurant._id}`);
       });
