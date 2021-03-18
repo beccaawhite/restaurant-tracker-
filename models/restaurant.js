@@ -16,7 +16,11 @@ const reviewSchema = new Schema({
             return date
             
         }
-    }
+    },
+    userId: {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    },
   }, {
     timestamp: true
 });

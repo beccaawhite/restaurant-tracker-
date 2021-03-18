@@ -64,11 +64,26 @@
   background-color: rosybrown;
 }
 
+
+/* make the text centered on image but background box */
 #welcome {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 400px;
-  background-color: rosybrown;
+  color: red;
+  /* background-color: rosybrown; */
+  
+ 
+}
+
+#backgroundIndex {
+  background-image: url("../../images/restaurant.jpg");
+  background-color: #cccccc;
+  height: 500px;
+  background-position: center;
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+
 }

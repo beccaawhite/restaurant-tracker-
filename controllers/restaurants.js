@@ -8,31 +8,26 @@ module.exports = {
     show,
     create, 
     add, 
+    delete: deleteRestaurant,
     favorite
-    // delete: deleteReview
+
 };
 
 
 // list of all restaurants
 function index(req, res){
     Restaurant.find({}, function(err, restDocuments) {
-        console.log(restDocuments)
+        // console.log(restDocuments)
         res.render("restaurants/index", {
             restaurants: restDocuments
         });
     });
 }
 
-// shows details page
+// shows details of each restaurant page
 function show(req, res){
-    console.log("SHOW FUNCTION FIRED")
     Restaurant.findById(req.params.id, function(err, restaurant){
-
-        User.find({restaurant: restaurant._id}, function(err, reviews) {
-            console.log(restaurant)
-            res.render("restaurants/show", {title: 'restaurant info', restaurant, reviews })
-            console.log(reviews, "array of reviews")
-        })
+        res.render("restaurants/show", {title: 'restaurant info', restaurant})
     })
 }
 
@@ -41,13 +36,20 @@ function newRestaurant(req, res){
     res.render("restaurants/new", {title: "Add New Restaurant"})
 }
 
-// adds new restaurant to my restaurants and redirects to all page
+// delete a restaurant
+function deleteRestaurant(req, res){
+    Restaurant.findByIdAndDelete(req.params.id, function() {
+        res.redirect('/restaurants');
+    })
+}
+
+// adds new restaurant to all restaurants and redirects to all page
 function create(req, res){
-    for (let key in req.body) {
-        if (req.body[key] === '') delete req.body[key];
-      }
-      const restaurants = new Restaurant(req.body);
-      restaurants.save(function(err) {
+        
+      req.body.user = req.user._id;
+      const restaurant = new Restaurant(req.body);
+      restaurant.userId = req.user._id;
+      restaurant.save(function(err) {
         if (err) return res.redirect('/restaurants/new');
         // console.log(restaurants);
         res.redirect("/restaurants");
@@ -67,21 +69,19 @@ function add(req, res){
 
 }
 
-// deletes specific review from specific restaurant page
-// function deleteReview(req, res){
-//     console.log("Bye byeeee")
 
-//     Restaurant.findOne({'reviews._id': req.params.id}, function(err, restaurant){
-//         console.log(req.params.id, "REVIEW DOC")
-//         const reviewDoc = restaurant.reviews.id(req.params.id);
-//         // reviewDoc.remove();
-//         // console.log(req.body, " THIS IS REQ.BODY")
-//         // restaurant.save(function(err){
-//         //     res.redirect(`/restaurants/${restaurant._id}`)
-//         // })
-//     })
-
-
+// when click star on restaurants/index, add that restaurant to favorites pafe
+// shows all MY created restuarants
+// doesnt work yet
 function favorite(req, res){
-    res.render("/restaurants/favorites")
+
+    // Restaurant.find({'userId': req.user._id}, function(err, restDocuments) {
+    //     console.log(restDocuments, "REST DOC FAV")
+    //     res.render("restaurants/favorites", {
+    //         myrestaurants: restDocuments
+    //     });
+    // });
+
+
+
 }

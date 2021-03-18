@@ -5,9 +5,9 @@
 
     <h2>Restaurants Details</h2>
 
-    <div class="container">
-        <div class="row">
-            <div class="col 3">
+    <div class="container ">
+        <div class="row card-body">
+            <div class="col-3">
                 
                 <img src="../../images/burger.jpg" height="250" width="100%">
                 <img src="../../images/burger.jpg" height="250" width="100%">
@@ -15,20 +15,24 @@
            
             </div>
 
-            <div class="col-6 restcard">
+            <div class="col-6">
 
                 <section id="show-page">
                     <!-- <div>Name: </div> -->
                     <div style="font-size: 2rem; font-weight: 500;">
-                        <%= restaurant.name %> <i class="far fa-star"></i>
+                        <%= restaurant.name %>
                     </div>
+                    <!-- DOES NOTHING yet but add the number of reviews -->
+                    <!-- if (restaurant.reviews.length) { -->
+                        <!-- <p> (restaurant.reviews.length) # of Reviews</p> -->
+                    <!-- }; -->
                     <hr class="makeline">
                     <!-- <div>City: </div> -->
-                    <div>Located in <%= restaurant.location %>
+                    <div><strong> <%= restaurant.location %></strong>
                     </div>
                     <!-- <div>Type of Food: </div> -->
-                    <div>
-                        <%= restaurant.foodtype %> Food
+                    <div>Cusine:
+                        <%= restaurant.foodtype %> 
                     </div>
                 </section>
 
@@ -54,9 +58,23 @@
                                     
                                 </li>
                             <% }; %>
-                            <form action="/restaurants/<%= r._id %>?_method=DELETE" method="POST" >
-                                <button type="submit">X</button>
-                            </form>
+                            <li>
+                                Review posted by <%= user.name %>
+                            </li>
+                            <!-- if user made the post, then show form -->
+                            
+
+
+                            <% if(r.userId){ %>
+                                <% if(r.userId.equals(user._id)) { %>
+                                    <form action="/restaurants/<%= r._id %>?_method=DELETE" method="POST" >
+                                        <button type="submit">X</button>
+                                    </form>
+                                <% } %>
+                            <% } %>
+
+                            
+                          
                          
                             <br>
                         </div>

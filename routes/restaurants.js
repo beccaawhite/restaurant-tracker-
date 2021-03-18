@@ -12,7 +12,10 @@ router.get('/restaurants/:id', isLoggedIn, restaurantsCtrl.show);
 router.post('/restaurants/:id', isLoggedIn, restaurantsCtrl.add);
 // router.delete('/restaurants/:id', restaurantsCtrl.delete);
 
-router.get('/restaurants/favorites', isLoggedIn, restaurantsCtrl.index);
+router.delete('/restaurants/:id', isLoggedIn, restaurantsCtrl.delete);
+
+
+// router.get('/restaurants/favorites', isLoggedIn, restaurantsCtrl.favorite);
 
 
 
