@@ -34,8 +34,6 @@ router.get('/restaurants/:id/edit', isLoggedIn, restaurantsCtrl.edit)
 // update specific restaurant entry
 router.put('/restaurants/:id', isLoggedIn, restaurantsCtrl.update);
 
-// 
-// router.get('/restaurants/favorites', isLoggedIn, restaurantsCtrl.favorite);
 
 
 
