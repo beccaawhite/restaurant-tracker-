@@ -8,7 +8,7 @@
 
     <div class="container">
         <div class="row card-body">
-            <div class="col-3">
+            <div class="col-3 images">
                 <img src="../../images/burger.jpg" height="200" width="100%">
                 <img src="../../images/salad.jpg" height="250" width="100%">
                 <img src="../../images/greek.jpg" height="250" width="100%">
@@ -20,7 +20,7 @@
                     
                     <div style="font-size: 2rem; font-weight: 500;">
                         <form action="/restaurants/<%= restaurant._id %>/edit">
-                            <%= restaurant.name %><button type="submit" class="btn btn-secondary"><i class="fas fa-edit"></i></button>
+                            <span></span><%= restaurant.name %><button type="submit" class=" btn-secondary">         <i class="fas fa-edit"></i></button></span>
                         </form>
                     </div>
                     
@@ -136,7 +136,7 @@
 
             </div>
 
-            <div class="col 3">
+            <div class="col 3 images">
                 <img src="../../images/meat.jpg" height="200" width="100%">
                 <img src="../../images/sushi.jpg" height="250" width="100%">
                 <img src="../../images/pancake.jpg" height="250" width="100%">
