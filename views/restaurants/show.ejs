@@ -19,9 +19,8 @@
                 <section id="show-page">
                     
                     <div style="font-size: 2rem; font-weight: 500;">
-                        <%= restaurant.name %>
                         <form action="/restaurants/<%= restaurant._id %>/edit">
-                            <button type="submit" class="btn btn-secondary"><i class="fas fa-edit"></i></button>
+                            <%= restaurant.name %><button type="submit" class="btn btn-secondary"><i class="fas fa-edit"></i></button>
                         </form>
                     </div>
                     
