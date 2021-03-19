@@ -5,8 +5,8 @@ This app allows the users to manage their favorite, or least favorite, restauran
 
 ## Screenshots
 
-<img src="../../images/signIn.png">
-<img src="../../images/viewAll.png">
+<img src="../../images/frontPage.jpg">
+<img src="../../images/allPage.jpg">
 
 
 ## Technologies Used 
@@ -29,7 +29,7 @@ This app allows the users to manage their favorite, or least favorite, restauran
 
 ## Next Steps
 
-Although the MVP is complete, there is many feautures that I would like to add. Here are my next steps for continuing to improve this app: 
+Although the MVP is complete, there are many feautures that I would like to add. Here are my next steps for continuing to improve this app: 
 
 1. Highest rated restaurants will show on top of the page
 2. Filter reviews by rating/location
