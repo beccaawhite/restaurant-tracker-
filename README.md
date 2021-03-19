@@ -5,8 +5,8 @@ This app allows the users to manage their favorite, or least favorite, restauran
 
 ## Screenshots
 
-<img src="../../images/frontPage.jpg">
-<img src="../../images/allPage.jpg">
+<img src="frontPage.jpg">
+<img src="allPage.jpg">
 
 
 ## Technologies Used 
