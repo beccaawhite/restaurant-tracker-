@@ -37,10 +37,8 @@
   padding: 60px;
   border: 2px solid black;
   border-radius: 15%;
-  background-color: #e7d7c1;
-  /* e7d7c1 */
-  /* e7d7c1 */
-  /* dad2d8 */
+  background-color: #eff1f3;
+  
 }
 
 
@@ -67,6 +65,10 @@
   border: 0.5px solid #969695;
 }
 
+#removeReview {
+
+}
+
 /* .formcard {
   height: 220px;
   width: 455px;
@@ -91,8 +93,8 @@
 }
 
 #addReview{
-  background-color: oldlace;
-  border: 1px solid rosybrown;
+  background-color: #eff1f3;
+  border: 1px solid black;
   border-radius: 3px;
   margin: 5px;
   padding: 10px;

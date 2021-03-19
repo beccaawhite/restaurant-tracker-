@@ -20,6 +20,9 @@
                     
                     <div style="font-size: 2rem; font-weight: 500;">
                         <%= restaurant.name %>
+                        <form action="/restaurants/<%= restaurant._id %>/edit">
+                            <button type="submit" class="btn btn-secondary"><i class="fas fa-edit"></i></button>
+                        </form>
                     </div>
                     
                     <hr class="makeline">
@@ -30,9 +33,6 @@
                         <%= restaurant.foodtype %> 
                     </div>
                     
-                    <form action="/restaurants/<%= restaurant._id %>/edit">
-                        <button type="submit">edit restaurant</button>
-                    </form>
                     
                 </section>
 
@@ -98,7 +98,7 @@
                                 
                                 <% if(r.userId.toString() == user._id.toString()) { %>
                                     <form action="/restaurants/<%= restaurant._id %>/reviews/<%= r._id %>?_method=DELETE" method="POST" >
-                                        <button type="submit" class="btn btn-danger">X</button>
+                                        <button type="submit" class="btn btn-dark" id="removeReview"><i class="far fa-trash-alt"></i></button>
                                     </form>
                                 <% } %>
                             <% } %>
