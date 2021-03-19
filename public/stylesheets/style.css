@@ -87,10 +87,10 @@
 } */
 
 #eachReview {
-  background-color: eff1f3;
+  background-color: #eff1f3;
   border: 1px solid black;
   border-radius: 3px;
-  margin: 5px;
+  margin: 10px;
   padding: 10px;
 
 }
