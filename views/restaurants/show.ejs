@@ -14,64 +14,60 @@
             <div class="col-6">
 
                 <section id="show-page">
-                    
-                    <div style="font-size: 2rem; font-weight: 500;">
-                        <form action="/restaurants/<%= restaurant._id %>/edit">
-                            <%= restaurant.name %><button type="submit" class="btn btn-secondary" style="font-size: 1rem">         
+
+                    <div class="rest-title">
+                        <%= restaurant.name %>
+                        <form action="/restaurants/<%= restaurant._id %>/edit" >
+                            <button type="submit" class="btn btn-secondary rest-edit" style="font-size: 1rem">         
                                 <i class="fas fa-edit"></i></button>
                         </form>
                     </div>
                     
-                    <hr class="makeline">
-                    <div><strong> <%= restaurant.location %></strong>
+                    <div>
+                        <em><%= restaurant.foodtype %> food</em> | <%= restaurant.location %>
                     </div>
 
-                    <div>Cusine:
-                        <%= restaurant.foodtype %> 
-                    </div>
-                    
-                    
+                    <hr class="makeline">
+
                 </section>
 
-                <br>
-
-
-                <hr class="makeline">
+            
                 <div>
                     <% if (restaurant.reviews.length) { %>
-                        <div>Reviews</div>
+                        <!-- <div>Reviews</div> -->
                     <% restaurant.reviews.forEach(r => { %>
                         <!-- add id to this div in order to format reviews -->
                         <div id="eachReview">
                             <li>
                                 <%= r.content %>
                             </li>
+                            <img src="<%= r.avatar %>" alt="" class="circle">
                             <li>
                                 <% if (r.rating == 5) { %>
                                 <%= r.rating %>
-                                <i class="far fa-star"></i>
-                                <i class="far fa-star"></i>
-                                <i class="far fa-star"></i>
-                                <i class="far fa-star"></i>
-                                <i class="far fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
                                 <% } else if(r.rating == 4) { %>
                                     <%= r.rating %>
-                                <i class="far fa-star"></i>
-                                <i class="far fa-star"></i>
-                                <i class="far fa-star"></i>
-                                <i class="far fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
                                 <% } else if(r.rating == 3) { %>
                                     <%= r.rating %>
-                                <i class="far fa-star"></i>
-                                <i class="far fa-star"></i>
-                                <i class="far fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
                                 <% } else if(r.rating == 2) { %>
                                     <%= r.rating %>
-                                <i class="far fa-star"></i>
-                                <i class="far fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
                                 <% } else { %>
                                     <%= r.rating %>
-                                <i class="far fa-star"></i>
+                                <i class="fas fa-star"></i>
                                 <% } %>
 
                             </li>
@@ -87,10 +83,6 @@
                             </li>
                             <!-- if user made the post, then show form -->
                         
-
-                        
-                           
-
                             <% if(r.userId){ %>
                                 
                                 <% if(r.userId.toString() == user._id.toString()) { %>
@@ -100,14 +92,14 @@
                                 <% } %>
                             <% } %>
 
-                            
-                          
-                         
+                    
                             <br>
                         </div>
                     <% }); %>
                     <% } else { %> 
-                    <div>No Reviews Yet</div>
+                    <div class="no-reviews">
+                        <h5> No Reviews Yet</h5>
+                    </div>
                     <% } %>
                 </div>
 

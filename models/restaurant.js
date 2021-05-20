@@ -16,6 +16,7 @@ const reviewSchema = new Schema({
             return date
         }
     },
+    avatar: String,
     userId: {
         type: Schema.Types.ObjectId,
         ref: 'User'
@@ -38,7 +39,6 @@ const restaurantSchema = new Schema({
     foodtype: {
         type: String,
         enum: ["Mexican", "Italian", "Greek", "Chinese", "Indian", "Japanese", "Soul", "American", "Thai", "Other"]
-    
     },
     reviews: [reviewSchema]
    

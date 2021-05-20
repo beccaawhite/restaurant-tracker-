@@ -10,7 +10,9 @@ function create(req, res){
     Restaurant.findById(req.params.id, function(err, restaurant){
       console.log("userID", req.body, req.user)
       req.body.userId = req.user._id;
-      req.body.reviewerName = req.user.name
+      req.body.reviewerName = req.user.name;
+      // get the avatar picture
+      req.body.avatar = req.user.avatar
 
       restaurant.reviews.push(req.body);
       // restaurant.reviews.userId = req.user._id
@@ -22,15 +24,14 @@ function create(req, res){
     })
 }
 
-
+// deletes specific reviews
 function deleteReview(req, res) {
     console.log("Delete is firing")
 
     Restaurant.findById(req.params.id1, function(err, restaurant) {
       
       const reviewSubDoc = restaurant.reviews.id(req.params.id2);
-    
-      console.log(req.user._id, "???")
+  
       reviewSubDoc.remove();
       restaurant.save(function(err) {
         res.redirect(`/restaurants/${restaurant._id}`)

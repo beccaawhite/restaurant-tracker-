@@ -1,3 +1,7 @@
+* {
+  font-family: 'Source Serif Pro', serif;
+}
+
 .brand-logo {
   margin-left: 15px;
 }
@@ -124,4 +128,27 @@
 .images {
   max-height: 250px;
   max-width: 250px;
+}
+
+.rest-title {
+  font-size: 2rem; 
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+
+}
+.rest-edit {
+  
+}
+
+.no-reviews {
+  text-align: center;
+  margin: 60px;
+  /* font-style: italic; */
+
+  
+}
+
+.log-info {
+  text-align: end;
 }
